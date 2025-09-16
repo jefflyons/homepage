@@ -115,6 +115,7 @@ const components = {
   qnap: dynamic(() => import("./qnap/component")),
   radarr: dynamic(() => import("./radarr/component")),
   readarr: dynamic(() => import("./readarr/component")),
+  myresults: dynamic(() => import("./myresults/component")),
   romm: dynamic(() => import("./romm/component")),
   rutorrent: dynamic(() => import("./rutorrent/component")),
   sabnzbd: dynamic(() => import("./sabnzbd/component")),
