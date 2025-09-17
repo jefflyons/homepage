@@ -1,10 +1,10 @@
 import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import useWidgetAPI from "utils/proxy/use-widget-api";
 import { BsCpu, BsFillCpuFill, BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 import { MdSmartDisplay } from "react-icons/md";
+
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
 	const { t } = useTranslation();
@@ -60,13 +60,13 @@ export default function Component({ service }) {
 			</div> */}
 
 			{data.map && data.map((item, index) => (
-				<div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
+				<div key={index} className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
 					<div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
 							{item.name}
 					</div>
 
 					{item.results && item.results.map((result, index) => (
-						<div className="self-center text-xs flex justify-center mr-1.5 pl-1 z-10" style={{background: result.success ? "green" : "red", borderRadius: "3px", padding: "2px", width:"40px"}}>
+						<div key={index} className="self-center text-xs flex justify-center mr-1.5 pl-1 z-10" style={{background: result.success ? "green" : "red", borderRadius: "3px", padding: "2px", width:"40px"}}>
 								&nbsp;{result.value}&nbsp;
 						</div>
 					))}

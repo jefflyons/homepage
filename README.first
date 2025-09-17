@@ -1,0 +1,2 @@
+
+DOCKER_BUILDKIT=1 docker build -t registry.donard.net/homepage:0.1 .  
