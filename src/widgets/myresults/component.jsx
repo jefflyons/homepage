@@ -66,23 +66,18 @@ export default function Component({ service }) {
 					</div>
 
 					{item.results && item.results.map((result, index) => (
-						<div key={index} className="self-center text-xs flex justify-center mr-1.5 pl-1 z-10" style={{background: result.success ? "green" : "red", borderRadius: "3px", padding: "2px", width:"40px"}}>
-								&nbsp;{result.value}&nbsp;
-						</div>
+						<Result key={index} result={result}/>
 					))}
 				</div>
 			))}
 
 
 
-			<div className="w-full text-center">
+			{/* <div className="w-full text-center">
 				<div className="flex-col text-xs">
 					<span>Last Updated: </span>
-					{/* <span>two</span> */}
-					{/* <span>hoo</span> */}
-					{/* <span className="text-green-500">{t("gamedig.online")}</span> */}
 				</div>
-				</div>
+			</div> */}
 
 		{/* <Container service={service}>
 			<Block label="Key 1" value={t("common.number", { value: data.key1 })} />
@@ -90,4 +85,29 @@ export default function Component({ service }) {
 		</Container> */}
 		</>
 	);
+}
+
+function Result(props) {
+
+	console.log('RESULT: ', props);
+
+	let background = "";
+	switch (props.result.colour) {
+		case "green":
+			background = "green";
+			break;
+		case "amber":
+			background = "#fb8f24ff";
+			break;
+		case "red":
+			background = "red";
+			break;
+	}
+	let value = props.result.value;
+
+	return (
+		<div className="self-center text-xs flex justify-center mr-1.5 pl-1 z-10" style={{background: background, borderRadius: "3px", padding: "2px", width:"40px"}}>
+				&nbsp;{value}&nbsp;
+		</div>
+	)
 }
